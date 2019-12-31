@@ -2,7 +2,8 @@
     <button type="button" class="mt-30 e-button" :class="['e-button--' + type,{
         'is-plain': plain,
         'is-round': round,
-        'is-circle': circle
+        'is-circle': circle,
+        'is-disabled': disabled
     }]">
         <span>
             <slot></slot>
@@ -20,7 +21,8 @@
             },
             plain: Boolean,
             round: Boolean,
-            circle: Boolean
+            circle: Boolean,
+            disabled: Boolean
         }
     }
 </script>
@@ -90,6 +92,41 @@
         padding: 12px;
     }
 
+    &.is-disabled {
+        &, &:focus, &:hover {
+            color: #c0c4cc;
+            cursor: not-allowed;
+            background-image: none;
+            background-color: #fff;
+            border-color: #ebeef5;
+        }
+    }
+
+    &--text {
+        border-color: transparent;
+        color: #409eff;
+        background: transparent;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:focus, &:hover {
+            color: #66b1ff;
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        &:active {
+            color: #3a8ee6;
+            background-color: transparent;
+        }
+
+        &.is-disabled {
+            &, &:focus, &:active, &:hover {
+                border-color: transparent;
+            }
+        }
+    }
+
     &--primary {
         color: #fff;
         background-color: #409eff;
@@ -122,6 +159,22 @@
             border-color: #3a8ee6;
             color: #fff;
             outline: none;
+        }
+
+        &.is-disabled {
+            &, &:focus, &:active, &:hover {
+                color: #fff;
+                background-color: #a0cfff;
+                border-color: #a0cfff;
+            }
+        }
+
+        &.is-plain.is-disabled {
+            &, &:active, &:focus, &:hover {
+                color: #8cc5ff;
+                background-color: #ecf5ff;
+                border-color: #d9ecff;
+            }
         }
 
     }
@@ -165,6 +218,23 @@
             color: #fff;
             outline: none;
         }
+
+        &.is-disabled {
+            &, &:focus, &:active, &:hover {
+                color: #fff;
+                background-color: #b3e19d;
+                border-color: #b3e19d;
+            }
+        }
+
+        
+        &.is-plain.is-disabled {
+            &, &:active, &:focus, &:hover {
+                color: #a4da89;
+                background-color: #f0f9eb;
+                border-color: #e1f3d8;
+            }
+        }
     }
 
     &--warning {
@@ -205,6 +275,30 @@
             border-color: #cf9236;
             color: #fff;
             outline: none;
+        }
+
+        &.is-disabled {
+            &, &:focus, &:active, &:hover {
+                color: #fff;
+                background-color: #f3d19e;
+                border-color: #f3d19e;
+            }
+        }
+
+        &.is-plain.is-disabled {
+            &, &:active, &:focus, &:hover {
+                color: #bcbec2;
+                background-color: #f4f4f5;
+                border-color: #e9e9eb;
+            }
+        }
+
+        &.is-plain.is-disabled {
+            &, &:active, &:focus, &:hover {
+                color: #f0c78a;
+                background-color: #fdf6ec;
+                border-color: #faecd8;
+            }
         }
     }
 
@@ -247,6 +341,22 @@
             color: #fff;
             outline: none;
         }
+
+        &.is-disabled {
+            &, &:focus, &:active, &:hover {
+                color: #fff;
+                background-color: #fab6b6;
+                border-color: #fab6b6;
+            }
+        }
+
+        &.is-plain.is-disabled {
+            &, &:active, &:focus, &:hover {
+                color: #f9a7a7;
+                background-color: #fef0f0;
+                border-color: #fde2e2;
+            }
+        }
     }
 
     &--info {
@@ -287,6 +397,22 @@
             border-color: #82848a;
             color: #fff;
             outline: none;
+        }
+
+        &.is-disabled {
+            &, &:focus, &:active, &:hover {
+                color: #fff;
+                background-color: #c8c9cc;
+                border-color: #c8c9cc;
+            }
+        }
+
+        &.is-plain.is-disabled {
+            &, &:active, &:focus, &:hover {
+                color: #bcbec2;
+                background-color: #f4f4f5;
+                border-color: #e9e9eb;
+            }
         }
     }
 }
