@@ -1,5 +1,9 @@
 <template>
-    <button type="button" class="e-button" :class="'e-button--' + type">
+    <button type="button" class="mt-30 e-button" :class="['e-button--' + type,{
+        'is-plain': plain,
+        'is-round': round,
+        'is-circle': circle
+    }]">
         <span>
             <slot></slot>
         </span>
@@ -13,12 +17,18 @@
             type: {
                 type: String,
                 default: 'default'
-            }
+            },
+            plain: Boolean,
+            round: Boolean,
+            circle: Boolean
         }
     }
 </script>
 
 <style lang="scss" scoped>
+.mt-30 {
+    margin-top: 30px !important; 
+}
 .e-button {
     display: inline-block;
     line-height: 1;
@@ -57,6 +67,29 @@
         outline: none
     }
 
+    &.is-plain {
+        &:focus, &:hover {
+            background: #fff;
+            border-color: #409eff;
+            color: #409eff;
+        }
+
+        &:active {
+            background: #fff;
+            outline: none;
+        }
+    }
+
+    &.is-round {
+        border-radius: 20px;
+        padding: 12px 23px;
+    }
+
+    &.is-circle {
+        border-radius: 50%;
+        padding: 12px;
+    }
+
     &--primary {
         color: #fff;
         background-color: #409eff;
@@ -71,6 +104,26 @@
         &:active {
             outline: none;
         }
+
+        &.is-plain {
+            color: #409eff;
+            background: #ecf5ff;
+            border-color: #b3d8ff;
+        }
+
+        &.is-plain:focus, &.is-plain:hover {
+            background: #409eff;
+            border-color: #409eff;
+            color: #fff;
+        }
+
+        &.is-plain:active {
+            background: #3a8ee6;
+            border-color: #3a8ee6;
+            color: #fff;
+            outline: none;
+        }
+
     }
 
     &--success {
@@ -92,6 +145,25 @@
             background: #5daf34;
             border-color: #5daf34;
             color: #fff;
+        }
+
+        &.is-plain {
+            color: #67c23a;
+            background: #f0f9eb;
+            border-color: #c2e7b0;
+        }
+
+        &.is-plain:focus, &.is-plain:hover {
+            background: #67c23a;
+            border-color: #67c23a;
+            color: #fff;
+        }
+
+        &.is-plain:active {
+            background: #5daf34;
+            border-color: #5daf34;
+            color: #fff;
+            outline: none;
         }
     }
 
@@ -115,6 +187,25 @@
             border-color: #cf9236;
             color: #fff;
         }
+
+         &.is-plain {
+            color: #e6a23c;
+            background: #fdf6ec;
+            border-color: #f5dab1;
+        }
+
+        &.is-plain:focus, &.is-plain:hover {
+            background: #e6a23c;
+            border-color: #e6a23c;
+            color: #fff;
+        }
+
+        &.is-plain:active {
+            background: #cf9236;
+            border-color: #cf9236;
+            color: #fff;
+            outline: none;
+        }
     }
 
     &--danger {
@@ -137,6 +228,25 @@
             border-color: #dd6161;
             color: #fff;
         }
+
+        &.is-plain {
+            color: #f56c6c;
+            background: #fef0f0;
+            border-color: #fbc4c4;
+        }
+
+        &.is-plain:focus, &.is-plain:hover {
+            background: #f56c6c;
+            border-color: #f56c6c;
+            color: #fff;
+        }
+
+        &.is-plain:active {
+            background: #dd6161;
+            border-color: #dd6161;
+            color: #fff;
+            outline: none;
+        }
     }
 
     &--info {
@@ -158,6 +268,25 @@
             background: #82848a;
             border-color: #82848a;
             color: #fff;
+        }
+
+        &.is-plain {
+            color: #909399;
+            background: #f4f4f5;
+            border-color: #d3d4d6;
+        }
+
+        &.is-plain:focus, &.is-plain:hover {
+            background: #909399;
+            border-color: #909399;
+            color: #fff;
+        }
+
+        &.is-plain:active {
+            background: #82848a;
+            border-color: #82848a;
+            color: #fff;
+            outline: none;
         }
     }
 }
