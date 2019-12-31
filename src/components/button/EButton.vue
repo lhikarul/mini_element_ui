@@ -1,9 +1,12 @@
 <template>
-    <button type="button" class="mt-30 e-button" :class="['e-button--' + type,{
+    <button type="button" class="mt-30 e-button" :class="['e-button--' + type,
+        buttonSize ? 'e-button--' + buttonSize : '',
+    {
         'is-plain': plain,
         'is-round': round,
         'is-circle': circle,
-        'is-disabled': disabled
+        'is-disabled': disabled,
+        'is-loading': loading,
     }]">
         <span>
             <slot></slot>
@@ -22,7 +25,14 @@
             plain: Boolean,
             round: Boolean,
             circle: Boolean,
-            disabled: Boolean
+            disabled: Boolean,
+            loading: Boolean,
+            size: String,
+        },
+        computed: {
+            buttonSize () {
+                return this.size;
+            }
         }
     }
 </script>
@@ -100,6 +110,24 @@
             background-color: #fff;
             border-color: #ebeef5;
         }
+    }
+
+    &--medium {
+        padding: 10px 20px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    &--small {
+        padding: 9px 15px;
+        font-size: 12px;
+        border-radius: 3px;
+    }
+
+    &--mini {
+        padding: 7px 15px;
+        font-size: 12px;
+        border-radius: 3px;
     }
 
     &--text {
